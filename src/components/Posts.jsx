@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import PostForm from './PostForm';
 import PostItem from './PostItem';
 
-export default function Posts() {
+export default function Posts({ username }) {
   const [allPosts, setAllPosts] = useState(null);
 
   useEffect(() => {
@@ -25,7 +25,14 @@ export default function Posts() {
     <div className="col">
       <PostForm submitHandler={submitHandler} />
       {allPosts
-        ? allPosts?.map((post) => <PostItem key={post.id} post={post} deletePost={deletePost} />)
+        ? allPosts?.map((post) => (
+          <PostItem
+            key={post.id}
+            post={post}
+            deletePost={deletePost}
+            username={username}
+          />
+        ))
         : 'Loading...'}
     </div>
   );

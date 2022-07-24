@@ -6,8 +6,6 @@ export default function EditPost({ post: initPost }) {
   const location = useLocation();
   const navigate = useNavigate();
   const post = location.state?.post ?? initPost;
-  console.log('INIT ->>', initPost);
-  console.log('LOCATION ->>', location.state?.post);
   const defaultInput = { title: post.title, body: post.body };
   const [input, setInput] = useState(defaultInput);
   const changeTitle = (e) => setInput((prev) => ({ ...prev, title: e.target.value }));

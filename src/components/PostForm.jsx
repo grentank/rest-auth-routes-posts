@@ -34,7 +34,7 @@ export default function PostForm({ submitHandler }) {
           onChange={changeBody}
         />
       </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button type="submit" className="btn btn-primary">Make post!</button>
     </form>
   );
 }

@@ -1,19 +1,15 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import EditPost from './EditPost';
-import Home from './Home';
 import NavBar from './NavBar';
-import Posts from './Posts';
+import PrivateRoutes from './routing/PrivateRoutes';
+import PublicRoutes from './routing/PublicRoutes';
 
-export default function App({ post }) {
+export default function App({ post, username }) {
   return (
     <div className="container">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/posts/:id" element={<EditPost post={post} />} />
-      </Routes>
+      <NavBar username={username} />
+      {username
+        ? <PrivateRoutes post={post} username={username} />
+        : <PublicRoutes />}
     </div>
   );
 }
